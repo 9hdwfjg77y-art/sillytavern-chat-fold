@@ -1,0 +1,93 @@
+/* Панель над чатом */
+#stcf-toolbar {
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px 8px;
+
+    color: var(--SmartThemeBodyColor, #ddd);
+    background: var(--SmartThemeBlurTintColor, rgba(0, 0, 0, 0.15));
+    border-bottom: 1px solid
+        var(--SmartThemeBorderColor, rgba(160, 160, 160, 0.3));
+}
+
+/* Кнопки расширения */
+.stcf-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: auto;
+    min-height: 28px;
+    margin: 0;
+    padding: 3px 9px;
+
+    color: var(--SmartThemeBodyColor, #ddd);
+    background: rgba(128, 128, 128, 0.1);
+    border: 1px solid
+        var(--SmartThemeBorderColor, rgba(160, 160, 160, 0.4));
+    border-radius: 7px;
+
+    font: inherit;
+    font-size: 0.82em;
+    line-height: 1.3;
+    cursor: pointer;
+}
+
+.stcf-button:hover {
+    background: rgba(128, 128, 128, 0.23);
+}
+
+.stcf-button:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
+.stcf-button:disabled {
+    opacity: 0.45;
+    cursor: default;
+}
+
+/* Кнопка отдельного сообщения */
+#chat .stcf-toggle {
+    display: flex;
+    width: max-content;
+    max-width: 100%;
+    margin: 3px 0 6px;
+}
+
+/*
+ * Обрезаем только видимую область.
+ * Содержимое сообщения не удаляется и не заменяется.
+ */
+#chat .mes.stcf-collapsed .mes_text {
+    min-height: 0 !important;
+    max-height: 4.8em !important;
+    overflow: hidden !important;
+}
+
+/* Настройка автоматического сворачивания */
+#stcf-toolbar .stcf-auto {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0 0 0 auto;
+    font-size: 0.8em;
+    cursor: pointer;
+}
+
+#stcf-toolbar .stcf-auto input {
+    width: auto;
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    #stcf-toolbar .stcf-auto {
+        margin-left: 0;
+    }
+}
