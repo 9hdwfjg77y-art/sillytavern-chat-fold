@@ -88,6 +88,19 @@
 
 @media (max-width: 600px) {
     #stcf-toolbar .stcf-auto {
+        /* Сообщения, исключённые из контекста через Hide */
+#chat .mes[is_system="true"] .mes_text {
+    opacity: 0.45;
+    filter: blur(0.5px);
+    transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+/* При наведении или работе с сообщением даём прочитать его */
+#chat .mes[is_system="true"]:hover .mes_text,
+#chat .mes[is_system="true"]:focus-within .mes_text {
+    opacity: 1;
+    filter: none;
+}
         margin-left: 0;
     }
 }
