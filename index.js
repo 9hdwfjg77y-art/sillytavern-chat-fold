@@ -83,7 +83,27 @@
             });
 
             state.button.classList.add('stcf-toggle');
-            text.before(state.button);
+            mes.querySelectorAll('.stcf-inline-controls').forEach((el) => {
+    el.remove();
+});
+
+const controls = document.createElement('div');
+controls.className = 'stcf-inline-controls';
+controls.style.cssText =
+    'display:flex;align-items:center;gap:6px;flex-wrap:wrap;';
+
+const foldAllButton = makeButton('Свернуть всё', () => {
+    document.querySelectorAll('#chat .mes').forEach((message) => {
+        const messageState = enhance(message);
+        if (!messageState) return;
+
+        messageState.collapsed = true;
+        paint(message, messageState);
+    });
+});
+
+controls.append(state.button, foldAllButton);
+text.before(controls);
         }
 
         paint(mes, state);
