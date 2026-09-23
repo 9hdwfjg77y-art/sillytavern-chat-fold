@@ -88,7 +88,10 @@
 
 @media (max-width: 600px) {
     #stcf-toolbar .stcf-auto {
-        
+        margin-left: 0;
+    }
+}
+
 /* Убираем «Свернуть всё» возле сообщений, но оставляем сверху */
 #chat .stcf-inline-controls > .stcf-button:not(.stcf-toggle) {
     display: none !important;
